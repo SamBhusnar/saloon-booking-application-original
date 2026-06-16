@@ -1,0 +1,7 @@
+
+# server port
+server:
+  port: 5002
+spring:
+  application:
+    name: saloon-service

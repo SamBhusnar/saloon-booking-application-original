@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: user-service
+  # mysql config
+  datasource:
+    url: jdbc:mysql://localhost:3306/saloon_booking?createDatabaseIfNotExist=true
+    username: root
+    password: sam123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # jpa config
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    # other config for this application
