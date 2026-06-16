@@ -1,7 +1,7 @@
 spring:
   application:
     name: user-service
-  # mysql config
+  # mysql config ----------------
   datasource:
     url: jdbc:mysql://localhost:3306/saloon_booking?createDatabaseIfNotExist=true
     username: root
