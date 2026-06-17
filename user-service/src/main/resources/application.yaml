@@ -13,4 +13,3 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-    # other config for this application
