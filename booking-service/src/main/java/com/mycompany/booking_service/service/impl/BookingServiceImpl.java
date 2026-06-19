@@ -161,6 +161,7 @@ public class BookingServiceImpl implements BookingService {
                 .sum();
         SalonReport salonReport = new SalonReport();
         salonReport.setSalonId(salonId);
+        salonReport.setSalonName("Kartik hair salon stdio");
         salonReport.setTotalBookings(totalBookings);
         salonReport.setTotalEarnings(totalEarnings);
         salonReport.setCancelledBookings(cancelledBookings.size());

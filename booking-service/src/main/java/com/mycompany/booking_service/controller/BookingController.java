@@ -38,6 +38,10 @@ public class BookingController {
         // salondto
         SalonDto salonDto = new SalonDto();
         salonDto.setId(salonId);
+        salonDto.setName("Kartik hair salon stdio");
+        // set open time and close time
+        salonDto.setOpenTime(bookingRequest.getStartTime().toLocalTime());
+        salonDto.setCloseTime(bookingRequest.getEndTime().toLocalTime());
 
         Set<ServiceOfferingDto> serviceOfferingDto = new HashSet<>();
         ServiceOfferingDto dto = new ServiceOfferingDto();
@@ -128,7 +132,7 @@ public class BookingController {
     }
 
     // update booking status
-    @PutMapping("/slot/salon/{salonId}/date/{date}")
+    @GetMapping("/slot/salon/{salonId}/date/{date}")
     public ResponseEntity<List<SlotDto>> getBookSlot(
             @PathVariable Long salonId,
             @PathVariable(required = false) LocalDate date
@@ -150,7 +154,7 @@ public class BookingController {
     }
 
     // get booking report
-    @PutMapping("/report")
+    @GetMapping("/report")
     public ResponseEntity<SalonReport> getBookingReport(
     ) {
        SalonReport reportSalon = bookingService.getSalonReport(1L);
