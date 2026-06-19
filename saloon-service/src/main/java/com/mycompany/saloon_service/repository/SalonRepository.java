@@ -17,5 +17,5 @@ public interface SalonRepository extends JpaRepository<Salon, Long> {
             "lower(s.city) LIKE lower(concat('%',:keyword,'%') ) OR " +
             "lower(s.name) LIKE lower(concat('%',:keyword,'%')) OR" +
             " lower(s.address) LIKE lower(concat('%',:keyword,'%'))")
-    List<Salon> searchSaloons(@Param("keyword")   String city);
+    List<Salon> searchSaloons(@Param("keyword") String city);
 }

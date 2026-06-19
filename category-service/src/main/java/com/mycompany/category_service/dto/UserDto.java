@@ -18,5 +18,5 @@ public class UserDto {
     @Email(message = "Invalid email format")
     @NotBlank(message = "Email is mandatory")
     private String email;
-   
+
 }

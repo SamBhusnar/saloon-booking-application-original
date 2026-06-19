@@ -8,7 +8,7 @@ import java.util.List;
 public class SalonMapper {
 
     public static SaloonDto toSalonDto(Salon saloon) {
-        SaloonDto saloonDto=new SaloonDto();
+        SaloonDto saloonDto = new SaloonDto();
         saloonDto.setId(saloon.getId());
         saloonDto.setName(saloon.getName());
         saloonDto.setCity(saloon.getCity());

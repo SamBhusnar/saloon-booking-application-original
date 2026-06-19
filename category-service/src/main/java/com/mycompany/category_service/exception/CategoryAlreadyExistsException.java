@@ -1,6 +1,6 @@
 package com.mycompany.category_service.exception;
 
-public class CategoryAlreadyExistsException extends RuntimeException{
+public class CategoryAlreadyExistsException extends RuntimeException {
     public CategoryAlreadyExistsException(String message) {
         super(message);
     }

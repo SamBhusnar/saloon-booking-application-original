@@ -5,7 +5,6 @@ import com.mycompany.saloon_service.dto.UserDto;
 import com.mycompany.saloon_service.exception.SalonAndOwnerNotMatchException;
 import com.mycompany.saloon_service.exception.SalonNotFoundException;
 import com.mycompany.saloon_service.model.Salon;
-import com.mycompany.saloon_service.model.Salon;
 import com.mycompany.saloon_service.repository.SalonRepository;
 import com.mycompany.saloon_service.service.SaloonService;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +17,6 @@ import java.util.List;
 public class SaloonServiceImpl implements SaloonService {
 
     private final SalonRepository salonRepository;
-
-
 
 
     @Override
@@ -42,10 +39,10 @@ public class SaloonServiceImpl implements SaloonService {
 
     @Override
     public Salon updateSaloon(SaloonDto updatedSaloonDto, UserDto user, Long salonId) {
-        if(!updatedSaloonDto.getOwnerId().equals(user.getId())){
+        if (!updatedSaloonDto.getOwnerId().equals(user.getId())) {
             throw new SalonAndOwnerNotMatchException("Salon and owner not match");
         }
-        Salon  existingSalon=salonRepository.findById(salonId).orElseThrow(() -> new SalonNotFoundException("Salon not found"));
+        Salon existingSalon = salonRepository.findById(salonId).orElseThrow(() -> new SalonNotFoundException("Salon not found"));
         existingSalon.setCity(updatedSaloonDto.getCity());
         existingSalon.setName(updatedSaloonDto.getName());
         existingSalon.setAddress(updatedSaloonDto.getAddress());
@@ -58,7 +55,6 @@ public class SaloonServiceImpl implements SaloonService {
         return salonRepository.save(existingSalon);
 
     }
-
 
 
     @Override
@@ -76,16 +72,16 @@ public class SaloonServiceImpl implements SaloonService {
 
     @Override
     public List<Salon> findAllSaloons() {
-        return  salonRepository.findAll();
+        return salonRepository.findAll();
     }
 
     @Override
     public List<Salon> findSaloonsByOwnerId(Long ownerId) {
-        return  salonRepository.findByOwnerId(ownerId);
+        return salonRepository.findByOwnerId(ownerId);
     }
 
     @Override
     public List<Salon> searchSaloonsByCity(String city) {
-        return  salonRepository.searchSaloons(city);
+        return salonRepository.searchSaloons(city);
     }
 }

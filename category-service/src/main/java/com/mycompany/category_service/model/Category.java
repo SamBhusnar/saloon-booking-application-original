@@ -16,15 +16,14 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column( nullable = false,unique = true)
+    @Column(nullable = false, unique = true)
     private String name;
 
 
     private String image;
 
-    @Column( nullable = false)
+    @Column(nullable = false)
     private Long salonId;
-
 
 
 }

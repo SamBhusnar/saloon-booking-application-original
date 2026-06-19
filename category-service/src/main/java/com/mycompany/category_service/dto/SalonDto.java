@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class SalonDto {
 
-    private  Long id;
+    private Long id;
 
     private String name;
 
@@ -40,9 +40,6 @@ public class SalonDto {
 
 
     private LocalTime closeTime;
-
-
-
 
 
 }

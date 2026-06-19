@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+
 import java.time.LocalDateTime;
 
 import static com.mycompany.saloon_service.constant.SalonConstant.SALON_AND_OWNER_NOT_MATCH;
@@ -16,7 +17,7 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(SalonNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleSalonNotFoundException(SalonNotFoundException ex , HttpServletRequest request) {
+    public ResponseEntity<ErrorResponse> handleSalonNotFoundException(SalonNotFoundException ex, HttpServletRequest request) {
 
         ErrorResponse errorResponse = new ErrorResponse();
         errorResponse.setPath(request.getRequestURI());
@@ -30,8 +31,8 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(SalonAndOwnerNotMatchException.class)
-    public ResponseEntity<ErrorResponse> handleSalonAndOwnerNotMatchException(SalonAndOwnerNotMatchException ex,HttpServletRequest request){
-        ErrorResponse errorResponse=new ErrorResponse();
+    public ResponseEntity<ErrorResponse> handleSalonAndOwnerNotMatchException(SalonAndOwnerNotMatchException ex, HttpServletRequest request) {
+        ErrorResponse errorResponse = new ErrorResponse();
         errorResponse.setPath(request.getRequestURI());
         errorResponse.setMethod(request.getMethod());
         errorResponse.setTimestamp(LocalDateTime.now());
@@ -43,8 +44,6 @@ public class GlobalExceptionHandler {
 
 
     }
-
-
 
 
 }

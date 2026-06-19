@@ -16,7 +16,7 @@ public class Salon {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
+    private Long id;
 
     @Column(nullable = false)
     private String name;
@@ -44,9 +44,6 @@ public class Salon {
 
     @Column(nullable = false)
     private LocalTime closeTime;
-
-
-
 
 
 }

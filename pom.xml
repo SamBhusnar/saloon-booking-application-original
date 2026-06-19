@@ -30,6 +30,8 @@
         <module>user-service</module>
         <module>saloon-service</module>
         <module>category-service</module>
+        <module>service-offering</module>
+        <module>booking-service</module>
     </modules>
 
 </project>

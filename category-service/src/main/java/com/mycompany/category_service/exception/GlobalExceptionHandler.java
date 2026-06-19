@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+
 import java.time.LocalDateTime;
 
 import static com.mycompany.category_service.constant.CategoryConstant.*;
@@ -16,7 +17,7 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(CategoryAlreadyExistsException.class)
-    public ResponseEntity<ErrorResponse> handleCategoryAlreadyExistsException(CategoryAlreadyExistsException ex , HttpServletRequest request) {
+    public ResponseEntity<ErrorResponse> handleCategoryAlreadyExistsException(CategoryAlreadyExistsException ex, HttpServletRequest request) {
 
         ErrorResponse errorResponse = new ErrorResponse();
         errorResponse.setPath(request.getRequestURI());
@@ -30,8 +31,8 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(CategoryAndSalonMismatchException.class)
-    public ResponseEntity<ErrorResponse> handleCategoryAndSalonMismatchException(CategoryAndSalonMismatchException ex,HttpServletRequest request){
-        ErrorResponse errorResponse=new ErrorResponse();
+    public ResponseEntity<ErrorResponse> handleCategoryAndSalonMismatchException(CategoryAndSalonMismatchException ex, HttpServletRequest request) {
+        ErrorResponse errorResponse = new ErrorResponse();
         errorResponse.setPath(request.getRequestURI());
         errorResponse.setMethod(request.getMethod());
         errorResponse.setTimestamp(LocalDateTime.now());
@@ -43,9 +44,10 @@ public class GlobalExceptionHandler {
 
 
     }
+
     @ExceptionHandler(CategoryNotFoundException.class)
-    public ResponseEntity<ErrorResponse> handleCategoryNotFoundException(CategoryNotFoundException ex,HttpServletRequest request){
-        ErrorResponse errorResponse=new ErrorResponse();
+    public ResponseEntity<ErrorResponse> handleCategoryNotFoundException(CategoryNotFoundException ex, HttpServletRequest request) {
+        ErrorResponse errorResponse = new ErrorResponse();
         errorResponse.setPath(request.getRequestURI());
         errorResponse.setMethod(request.getMethod());
         errorResponse.setTimestamp(LocalDateTime.now());
@@ -61,8 +63,8 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorResponse> handleCategoryNotFoundException(Exception ex,HttpServletRequest request){
-        ErrorResponse errorResponse=new ErrorResponse();
+    public ResponseEntity<ErrorResponse> handleCategoryNotFoundException(Exception ex, HttpServletRequest request) {
+        ErrorResponse errorResponse = new ErrorResponse();
         errorResponse.setPath(request.getRequestURI());
         errorResponse.setMethod(request.getMethod());
         errorResponse.setTimestamp(LocalDateTime.now());
@@ -74,9 +76,6 @@ public class GlobalExceptionHandler {
 
 
     }
-
-
-
 
 
 }

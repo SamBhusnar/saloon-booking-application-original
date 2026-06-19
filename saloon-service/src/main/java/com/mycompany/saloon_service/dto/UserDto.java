@@ -2,8 +2,6 @@ package com.mycompany.saloon_service.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,5 +18,5 @@ public class UserDto {
     @Email(message = "Invalid email format")
     @NotBlank(message = "Email is mandatory")
     private String email;
-   
+
 }

@@ -27,18 +27,18 @@ public class SalonController {
 
 
         Salon saloon = saloonService.createSaloon(salonDto, userDto);
-        SaloonDto salonDtoMapped= SalonMapper.toSalonDto(saloon);
+        SaloonDto salonDtoMapped = SalonMapper.toSalonDto(saloon);
         return ResponseEntity.ok(salonDtoMapped);
     }
 
     // update salon and return salonDto
     @PatchMapping("/{saloonId}")
-    public ResponseEntity<SaloonDto>  updateSaloon(
+    public ResponseEntity<SaloonDto> updateSaloon(
             @RequestBody SaloonDto salonDto,
             @PathVariable Long saloonId
 
 
-            ) {
+    ) {
         // user dto instance
         UserDto userDto = new UserDto();
 
@@ -47,22 +47,24 @@ public class SalonController {
 
         Salon salon = saloonService.updateSaloon(salonDto, userDto, saloonId);
 
-        SaloonDto salonDtoMapped= SalonMapper.toSalonDto(salon);
+        SaloonDto salonDtoMapped = SalonMapper.toSalonDto(salon);
 
         return ResponseEntity.ok(salonDtoMapped);
     }
+
     // get mapping
     @GetMapping
-    public ResponseEntity<List<SaloonDto>>  getAllSalons(
+    public ResponseEntity<List<SaloonDto>> getAllSalons(
     ) {
 
         List<Salon> allSalons = saloonService.findAllSaloons();
         List<SaloonDto> allSalonsDto = SalonMapper.toSalonDtoList(allSalons);
         return ResponseEntity.ok(allSalonsDto);
     }
+
     // get salon by id
     @GetMapping("/{id}")
-    public ResponseEntity<SaloonDto>  getSalonById(
+    public ResponseEntity<SaloonDto> getSalonById(
             @PathVariable Long id
     ) {
 
@@ -73,7 +75,7 @@ public class SalonController {
 
     // search salon
     @GetMapping("/search")
-    public ResponseEntity<List<SaloonDto>>  searchSalon(
+    public ResponseEntity<List<SaloonDto>> searchSalon(
 
             @RequestParam("city") String search
 
@@ -83,7 +85,7 @@ public class SalonController {
 
         List<Salon> salons = saloonService.searchSaloonsByCity(search);
 
-        List<SaloonDto> salonDtoList= SalonMapper.toSalonDtoList(salons);
+        List<SaloonDto> salonDtoList = SalonMapper.toSalonDtoList(salons);
 
         return ResponseEntity.ok(salonDtoList);
     }
@@ -92,17 +94,15 @@ public class SalonController {
     // get salon by owner id
 
     @GetMapping("/owner")
-    public ResponseEntity<List<SaloonDto>>  getSalonByOwnerId() {
+    public ResponseEntity<List<SaloonDto>> getSalonByOwnerId() {
 
 
         List<Salon> salons = saloonService.findSaloonsByOwnerId(42L);
 
-        List<SaloonDto> salonDtoList= SalonMapper.toSalonDtoList(salons);
+        List<SaloonDto> salonDtoList = SalonMapper.toSalonDtoList(salons);
 
         return ResponseEntity.ok(salonDtoList);
     }
-
-
 
 
 }
