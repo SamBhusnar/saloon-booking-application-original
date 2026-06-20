@@ -138,7 +138,7 @@ public class BookingController {
             @PathVariable(required = false) LocalDate date
     ) {
         List<Booking> bookings = bookingService.getBookingByDate( date,salonId);
-
+        // convert booking to slot
         List<SlotDto> slots = bookings.stream()
                 .map(BookingMapper::toSlotDto)
                 .toList();
