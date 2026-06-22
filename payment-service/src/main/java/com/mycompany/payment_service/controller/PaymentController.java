@@ -43,9 +43,6 @@ public class PaymentController {
             @PathVariable Long paymentOrderId
 
     ) throws StripeException, RazorpayException {
-
-
-
         return
                 ResponseEntity
                         .ok(paymentService
@@ -53,10 +50,16 @@ public class PaymentController {
 
 
     }
+    @PatchMapping("/proceed")
+    public ResponseEntity<Boolean> processPaymentOrder(
+            @RequestParam String  paymentId,
+            @RequestParam String paymentLinkId
+    ) throws StripeException, RazorpayException {
 
-    
+        PaymentOrder paymentOrder=paymentService.getPaymentOrderByPaymentId(paymentLinkId);
+        Boolean res=paymentService.proceedPayment(paymentOrder,paymentId,paymentLinkId);
+        return ResponseEntity.ok(res);
 
-
-
+    }
 
 }

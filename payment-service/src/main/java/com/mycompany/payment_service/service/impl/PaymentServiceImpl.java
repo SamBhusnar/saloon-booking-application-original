@@ -180,6 +180,13 @@ public class PaymentServiceImpl implements PaymentService {
                     paymentRepository.save(paymentOrder);
                     return true;
                 }
+                return false;
+
+            }else {
+
+                paymentOrder.setStatus(PaymentOrderStatus.SUCCESS);
+                paymentRepository.save(paymentOrder);
+                return true;
 
             }
 
