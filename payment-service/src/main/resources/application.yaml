@@ -1,0 +1,31 @@
+server:
+  port: 5006
+
+spring:
+  application:
+    name: payment-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/payment_db?createDatabaseIfNotExist=true
+    username: root
+    password: sam123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # jpa config
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+# Razorpay config
+razorpay:
+  api:
+    key: rzp_test_1234567890
+    secret: rzp_test_1234567890
+
+# Stripe config
+stripe:
+  api:
+    key:  sk_test_1234567890
+    secret: sk_test_1234567890
+
+
