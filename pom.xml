@@ -34,6 +34,7 @@
         <module>booking-service</module>
         <module>payment-service</module>
         <module>eureka-server</module>
+        <module>gateway-server</module>
     </modules>
 
 </project>
