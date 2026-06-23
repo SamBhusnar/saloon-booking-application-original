@@ -1,3 +1,63 @@
+server:
+  port: 5000
+
+
 spring:
   application:
     name: gateway-server
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: false
+              lower-case-service-id: true
+#          routes:
+#            - id: USER-SERVICE
+#              uri:
+#                "lb://USER-SERVICE"
+#              predicates:
+#                - Path= /api/users/**, /api/user/**
+#
+#            - id: SERVICE-OFFERING
+#              uri:
+#                "lb://SERVICE-OFFERING"
+#              predicates:
+#                - Path= /api/service-offering/salon-owner/**, /api/service-offering/**
+#
+#            - id: SALOON-SERVICE
+#              uri: lb://SALOON-SERVICE
+#              predicates:
+#                - Path=/api/salons/**, /api/salon/**
+#
+#            - id: PAYMENT-SERVICE
+#              uri:
+#                "lb://PAYMENT-SERVICE"
+#              predicates:
+#                - Path= /api/payments/**, /api/payment/**
+#
+#            - id: CATEGORY-SERVICE
+#              uri:
+#                "lb://CATEGORY-SERVICE"
+#              predicates:
+#                - Path= /api/categories/**, /api/categories/salon-owner/**
+#
+#            - id: BOOKING-SERVICE
+#              uri: lb://BOOKING-SERVICE
+#              predicates:
+#                - Path=/api/booking/**
+#
+
+
+
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8070/eureka/
